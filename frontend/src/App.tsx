@@ -5,10 +5,14 @@ import { Blog } from './pages/Blog'
 import { Blogs } from './pages/Blogs'
 
 import { Publish } from './Publish'
+import  { useEffect } from 'react';
+
 
 
 function App() {
-
+  useEffect(() => {
+    document.title = 'Insightblog';
+  }, []);
   return (
     <>
       <BrowserRouter>
