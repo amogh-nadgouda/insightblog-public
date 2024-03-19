@@ -57,3 +57,23 @@ export const useBlogs = () => {
         blogs
     }
 }
+export const useQuote = () => {
+    const [loading, setLoading] = useState(true);
+    const [quote, setQuote] = useState("");
+    const [author, setAuthor] = useState("");
+
+    useEffect(() => {
+        axios.get(`https://api.quotable.io/random`, 
+            ).then(response => {
+                setQuote(response.data.content);
+                setAuthor(response.data.author);
+                setLoading(false);
+            })
+    }, [])
+
+    return {
+        loading,
+        quote,
+        author
+    }
+}
